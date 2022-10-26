@@ -11,12 +11,15 @@ public class ProjectileAimer : MonoBehaviour
     public GameObject projectilePlaceholder;
     public GameObject player;
     PlayerController playerController;
+    Transform scatterShot1;
+    Transform scatterShot2;
 
     // Start is called before the first frame update
     void Awake()
     {
         Camera = Camera.main;
-        //playerController = player.GetComponent<PlayerController>;
+        scatterShot1 = transform;
+        scatterShot2 = transform;
     }
 
     // Update is called once per frame
@@ -31,12 +34,32 @@ public class ProjectileAimer : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, 0f, FireAngle);
 
+      // scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
+      // scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
 
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(projectilePlaceholder, BulletSpawn.position, transform.rotation);
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            Instantiate(projectilePlaceholder, BulletSpawn.position, transform.rotation);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
+
+            Instantiate(projectilePlaceholder, BulletSpawn.position, transform.rotation);
+            Instantiate(projectilePlaceholder, BulletSpawn.position, scatterShot1.rotation);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
+            Instantiate(projectilePlaceholder, BulletSpawn.position, scatterShot2.rotation);
+        }
 
     }
 }
