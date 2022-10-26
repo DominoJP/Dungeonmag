@@ -13,6 +13,7 @@ public class ProjectileAimer : MonoBehaviour
     PlayerController playerController;
     Transform scatterShot1;
     Transform scatterShot2;
+    GameObject Aimer;
 
     // Start is called before the first frame update
     void Awake()
@@ -50,8 +51,6 @@ public class ProjectileAimer : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
-
-            Instantiate(projectilePlaceholder, BulletSpawn.position, transform.rotation);
             Instantiate(projectilePlaceholder, BulletSpawn.position, scatterShot1.rotation);
         }
 
