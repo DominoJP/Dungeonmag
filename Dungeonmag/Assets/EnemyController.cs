@@ -6,20 +6,19 @@ public class EnemyController : MonoBehaviour
 {
 
     Rigidbody2D enemyRB;
-    float health;
-    float moveSpeed;
+    public float health;
+    public float moveSpeed;
     public WaveCounter waveCounterScript;
-    public float localEnemiesKilled;
-
+    
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        waveCounterScript = GameObject.Find("Canvas").GetComponent<WaveCounter>();
-        localEnemiesKilled = waveCounterScript.enemiesKilled;
+        health = 5;
+        waveCounterScript = GameObject.Find("Player").GetComponent<WaveCounter>();
+        enemyRB = gameObject.GetComponent<Rigidbody2D>();
 
 
     }
@@ -27,7 +26,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (health <= 0f)
         {
             killEnemy();
@@ -36,10 +35,19 @@ public class EnemyController : MonoBehaviour
         void killEnemy()
         {
             Destroy(gameObject);
-            localEnemiesKilled = localEnemiesKilled + 1f;
+            waveCounterScript.enemiesKilled = waveCounterScript.enemiesKilled + 1f;
+        }
+
+        void OnCollisionEnter2D(Collider2D other)
+        {
+            if (other.tag == ("Bullet"))
+            {
+                health = health - 1;
+            }
         }
 
 
-        
+
+
     }
 }

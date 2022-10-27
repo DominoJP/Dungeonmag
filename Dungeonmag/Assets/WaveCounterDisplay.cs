@@ -8,17 +8,23 @@ public class WaveCounterDisplay : MonoBehaviour
 
     public TMP_Text waveDisplay;
     public float waveNumber;
+    public float projectileDamage;
 
     // Start is called before the first frame update
     void Start()
     {
-        waveNumber = 5;
-        waveDisplay.text = " Health" + waveNumber.ToString();
+        waveNumber = 1;
+        waveDisplay.text = "Wave: " + waveNumber.ToString();
     }
     
     // Update is called once per frame
     void Update()
     {
-        waveDisplay.text = " Health" + waveNumber.ToString();
+        waveDisplay.text = "Wave: " + waveNumber.ToString();
     }
+
+
+
+
+
 }
