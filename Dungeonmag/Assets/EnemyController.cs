@@ -38,16 +38,18 @@ public class EnemyController : MonoBehaviour
             waveCounterScript.enemiesKilled = waveCounterScript.enemiesKilled + 1f;
         }
 
-        void OnCollisionEnter2D(Collider2D other)
-        {
-            if (other.tag == ("Bullet"))
-            {
-                health = health - 1;
-            }
-        }
-
 
 
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == ("Bullet"))
+        {
+            health = health - 1;
+        }
+    }
+
 }
