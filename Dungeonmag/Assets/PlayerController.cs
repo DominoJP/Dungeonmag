@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection;
     public bool hasGun;
     public float health;
-    
 
     // Start is called before the first frame update
     void Start()
