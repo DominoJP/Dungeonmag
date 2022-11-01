@@ -28,6 +28,16 @@ public class PlayerController : MonoBehaviour
         moveDirection.y = Input.GetAxisRaw("Vertical");
         healthBarScript.UpdateHealth(health);
 
+        if (health <= 0f)
+        {
+            killPlayer();
+        }
+
+    }
+
+    private void killPlayer()
+    {
+        //???
     }
 
     private void FixedUpdate()
