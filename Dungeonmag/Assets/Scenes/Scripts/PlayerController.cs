@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D RB;
     Vector2 moveDirection;
     public bool hasGun;
+
     public float health;
     public float maxHealth;
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         health = maxHealth;
         healthBarScript.SetMaxHealth(maxHealth);
+
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
+
         healthBarScript.UpdateHealth(health);
 
         if (health <= 0f)
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private void killPlayer()
     {
         //???
+
     }
 
     private void FixedUpdate()
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
@@ -54,5 +59,6 @@ public class PlayerController : MonoBehaviour
             health = health - 1;
         }
     }
+
 
 }
