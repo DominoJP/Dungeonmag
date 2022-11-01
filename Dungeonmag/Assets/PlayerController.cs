@@ -10,11 +10,14 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection;
     public bool hasGun;
     public float health;
+    public float maxHealth;
 
-    // Start is called before the first frame update
+    public HealthBarController healthBarScript;
+
     void Start()
     {
-        health = 10;
+        health = maxHealth;
+        healthBarScript.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -23,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
-
+        healthBarScript.UpdateHealth(health);
 
     }
 
