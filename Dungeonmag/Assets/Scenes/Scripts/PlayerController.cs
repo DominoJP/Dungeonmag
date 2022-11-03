@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
             killPlayer();
         }
 
+
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
     }
 
     private void killPlayer()
