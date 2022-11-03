@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
         healthBarScript.SetMaxHealth(maxHealth);
     }
 
+    private void Awake()
+    {
+       // DontDestroyOnLoad(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
