@@ -28,7 +28,10 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z);
-        if (MainCamera.orthographic)
+
+
+
+        /*if (MainCamera.orthographic)
         {
             MainCamera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed;
         }
@@ -47,7 +50,7 @@ public class CameraController : MonoBehaviour
         if (MainCamera.orthographicSize <= 14)
         {
             ZoomSpeed = 2f;
-        }
+        }*/
 
     }
     }

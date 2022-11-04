@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Awake()
+    {
+       // DontDestroyOnLoad(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +39,12 @@ public class PlayerController : MonoBehaviour
         if (health <= 0f)
         {
             killPlayer();
+        }
+
+
+        if(health > maxHealth)
+        {
+            health = maxHealth;
         }
 
     }
