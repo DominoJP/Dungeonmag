@@ -19,7 +19,7 @@ public class BulletController : MonoBehaviour
     {
 
         BulletRB.velocity = transform.right * BulletSpeed;
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 3);
        
 
     }

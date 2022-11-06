@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
 
     Rigidbody2D enemyRB;
     public float health;
-    public float moveSpeed;
     public WaveCounter waveCounterScript;
     
 
