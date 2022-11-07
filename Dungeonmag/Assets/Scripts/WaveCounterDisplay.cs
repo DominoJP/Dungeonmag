@@ -15,22 +15,14 @@ public class WaveCounterDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waveNumber = 1;
         waveDisplay.text = "Wave: " + waveNumber.ToString();
         waveCounterScript = GameObject.Find("Player").GetComponent<WaveCounter>();
-        enemiesUntilNextWave = 5;
     }
     
     // Update is called once per frame
     void Update()
     {
-
-        if (waveCounterScript.enemiesKilled >= enemiesUntilNextWave)
-        {
-            waveNumber = waveNumber + 1;
-            waveCounterScript.enemiesKilled = 0;
-        }
-
+        waveNumber = waveCounterScript.waveNumber;
         waveDisplay.text = "Wave: " + waveNumber.ToString();
 
 
