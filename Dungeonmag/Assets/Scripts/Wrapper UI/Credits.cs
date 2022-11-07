@@ -8,7 +8,7 @@ public class Credits : MonoBehaviour
 
     public void Return()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
 }
