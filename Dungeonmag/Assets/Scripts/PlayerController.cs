@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         secondCounter = 0;
         //play death anim
-        //SceneManager.LoadScene("GameOverScreen");
+        SceneManager.LoadScene("MainMenu");
        
        
         }
