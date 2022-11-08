@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D RB;
     Vector2 moveDirection;
     public bool hasGun;
-
+    float secondCounter;
+    float frameCounter;
     public float health;
     public float maxHealth;
+    public MainMenu mainMenuScript;
+    public bool hasShotgun;
+    public bool hasExplosiveBullets;
+    public bool hasPiercingBullets;
 
     public HealthBarController healthBarScript;
 
@@ -19,7 +25,9 @@ public class PlayerController : MonoBehaviour
     {
         health = maxHealth;
         healthBarScript.SetMaxHealth(maxHealth);
-
+        frameCounter = 1;
+        hasShotgun = false;
+        hasExplosiveBullets = false;
     }
 
     private void Awake()
@@ -51,13 +59,17 @@ public class PlayerController : MonoBehaviour
 
     private void killPlayer()
     {
-        //???
-
-    }
+        secondCounter = 0;
+        //play death anim
+        //SceneManager.LoadScene("GameOverScreen");
+       
+       
+        }
 
     private void FixedUpdate()
     {
-
+        frameCounter++;
+        secondCounter = frameCounter / 50;
         RB.MovePosition(RB.position + (moveDirection * moveSpeed * Time.fixedDeltaTime));
 
     }

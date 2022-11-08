@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Bumper
+  - BumperRight
+  - BumperLeft
+  - Explosion
   layers:
   - Default
   - TransparentFX
