@@ -7,9 +7,12 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject enemy;
     public GameObject player;
+    public GameObject beer;
     float timeSinceWaveStart;
     float absoluteTime;
     float frameCounter;
+    float beerTimer;
+    float beerRNG;
 
     public WaveCounter waveCounterScript;
     
@@ -18,13 +21,15 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         waveCounterScript = GameObject.Find("Player").GetComponent<WaveCounter>();
-       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        SpawnBeer();
+
         if (waveCounterScript.waveNumber == 1)
         {
             SpawnEnemiesWave1();
@@ -55,6 +60,7 @@ public class EnemySpawner : MonoBehaviour
     private void FixedUpdate()
     {
         frameCounter = frameCounter + 1;
+        beerTimer = beerTimer + 1;
     }
 
     private void SpawnEnemiesWave1()
@@ -106,6 +112,22 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+
+    private void SpawnBeer()
+    {
+        beerRNG = Random.Range(1, 6);
+        if (beerTimer >= 250f)
+        {
+            if (beerRNG == 5)
+            {
+                Instantiate(beer, new Vector3(player.transform.position.x + Random.Range(-8f, 9f), Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
+            }
+
+            beerTimer = 0f;
+        }
+
+        
+    }
 
 
 

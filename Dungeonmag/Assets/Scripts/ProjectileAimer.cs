@@ -8,12 +8,14 @@ public class ProjectileAimer : MonoBehaviour
     private Transform BulletTransform;
     private Camera Camera;
     public Transform BulletSpawn;
-    public GameObject projectilePlaceholder;
+    public GameObject bullet;
+    public GameObject explosiveBullet;
     public GameObject player;
     PlayerController playerController;
     Transform scatterShot1;
     Transform scatterShot2;
     GameObject Aimer;
+    public float FireAngle;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,44 +23,88 @@ public class ProjectileAimer : MonoBehaviour
         Camera = Camera.main;
         scatterShot1 = transform;
         scatterShot2 = transform;
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
 
         Vector3 AimerLocation = Camera.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 AimerRotation = AimerLocation - transform.position;
 
-        float FireAngle = Mathf.Atan2(AimerRotation.y, AimerRotation.x) * Mathf.Rad2Deg;
+        FireAngle = Mathf.Atan2(AimerRotation.y, AimerRotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0f, 0f, FireAngle);
 
-      // scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
-      // scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
 
-        if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0) && playerController.hasShotgun == false && playerController.hasExplosiveBullets == false)
         {
-            Instantiate(projectilePlaceholder, BulletSpawn.position, transform.rotation);
+            Instantiate(bullet, BulletSpawn.position, transform.rotation);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(0) && !playerController.hasShotgun && playerController.hasExplosiveBullets)
         {
-            Instantiate(projectilePlaceholder, BulletSpawn.position, transform.rotation);
+            Instantiate(explosiveBullet, BulletSpawn.position, transform.rotation);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (playerController.hasShotgun == true && playerController.hasExplosiveBullets)
         {
-            scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
-            Instantiate(projectilePlaceholder, BulletSpawn.position, scatterShot1.rotation);
+            ShootShotgunExplosive();
         }
-
-        if (Input.GetMouseButtonDown(1))
+        else
         {
-            scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
-            Instantiate(projectilePlaceholder, BulletSpawn.position, scatterShot2.rotation);
+            ShootShotgun();
         }
 
     }
+
+    public void ShootShotgun()
+    {
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Instantiate(bullet, BulletSpawn.position, transform.rotation);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
+                Instantiate(bullet, BulletSpawn.position, scatterShot1.rotation);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
+                Instantiate(bullet, BulletSpawn.position, scatterShot2.rotation);
+            }
+
+    }
+
+
+    public void ShootShotgunExplosive()
+    {
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Instantiate(explosiveBullet, BulletSpawn.position, transform.rotation);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
+                Instantiate(explosiveBullet, BulletSpawn.position, scatterShot1.rotation);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
+                Instantiate(explosiveBullet, BulletSpawn.position, scatterShot2.rotation);
+            }
+
+    }
+
+
 }

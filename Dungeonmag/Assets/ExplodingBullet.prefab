@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5152552722063882932}
   - component: {fileID: 5152552722063882933}
-  - component: {fileID: -2756175957393983517}
   - component: {fileID: 3491397041847976251}
   - component: {fileID: 1925999918552874783}
+  - component: {fileID: -4042541596471561076}
   m_Layer: 0
-  m_Name: Bullet 1
-  m_TagString: Untagged
+  m_Name: ExplodingBullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2756175957393983517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5152552722063882934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b756cb016065b8d4bb1ff281cc146df3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletSpeed: 20
-  BulletRB: {fileID: 1925999918552874783}
-  Player: {fileID: 0}
 --- !u!70 &3491397041847976251
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +97,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -139,3 +124,19 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-4042541596471561076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5152552722063882934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b398ae2551afe4c9f753e7b9d0f59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletSpeed: 20
+  BulletRB: {fileID: 1925999918552874783}
+  playerScript: {fileID: 0}
+  explosion: {fileID: 5152552722063882934, guid: b51f1e97637abef42b82a65762dec93d, type: 3}
