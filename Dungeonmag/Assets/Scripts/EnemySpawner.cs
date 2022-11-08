@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnBeer()
     {
         beerRNG = Random.Range(1, 6);
-        if (beerTimer >= 100f)
+        if (beerTimer >= 175f)
         {
             if (beerRNG == 5)
             {
