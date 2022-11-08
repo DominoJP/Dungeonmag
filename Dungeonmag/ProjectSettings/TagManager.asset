@@ -9,6 +9,7 @@ TagManager:
   - Bumper
   - BumperRight
   - BumperLeft
+  - Explosion
   layers:
   - Default
   - TransparentFX

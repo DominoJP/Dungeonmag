@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == ("Bullet"))
+        if (other.tag == ("Bullet") || other.tag == ("Explosion"))
         {
             health = health - 1;
         }

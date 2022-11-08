@@ -5947,7 +5947,7 @@ MonoBehaviour:
   maxHealth: 10
   mainMenuScript: {fileID: 0}
   hasShotgun: 0
-  hasExplosiveBullets: 0
+  hasExplosiveBullets: 1
   hasPiercingBullets: 0
   healthBarScript: {fileID: 324990106}
 --- !u!114 &650879122

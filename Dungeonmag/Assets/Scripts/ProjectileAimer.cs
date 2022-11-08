@@ -54,7 +54,7 @@ public class ProjectileAimer : MonoBehaviour
         {
             ShootShotgunExplosive();
         }
-        else
+        if(playerController.hasShotgun == true && playerController.hasExplosiveBullets == false)
         {
             ShootShotgun();
         }
