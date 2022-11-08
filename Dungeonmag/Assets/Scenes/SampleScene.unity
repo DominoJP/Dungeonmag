@@ -43979,7 +43979,7 @@ MonoBehaviour:
   RB: {fileID: 650879118}
   hasGun: 0
   health: 0
-  maxHealth: 10
+  maxHealth: 30
   mainMenuScript: {fileID: 0}
   hasShotgun: 0
   hasExplosiveBullets: 0
