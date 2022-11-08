@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6912495112966956919}
   - component: {fileID: 6912495112966956875}
   - component: {fileID: 3458054413010136545}
+  - component: {fileID: -56548660306854882}
   - component: {fileID: -7456104314980214347}
   m_Layer: 0
   m_Name: Slime
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1996524495, guid: 437cf4cdc7fab434682474cd2decb5a2, type: 3}
-  m_Color: {r: 1, g: 0.48985094, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -166,6 +167,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &-56548660306854882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6912495112966956918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fe9c557d228ab4194c3829c42d44ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RB: {fileID: 0}
+  moveDirection: {x: -1, y: 0}
+  horizontalSpeed: 6
 --- !u!95 &-7456104314980214347
 Animator:
   serializedVersion: 4
