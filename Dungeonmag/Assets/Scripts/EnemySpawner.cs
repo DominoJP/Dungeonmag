@@ -107,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (frameCounter >= 45)
         {
-            Instantiate(enemy[Random.Range(0, enemy.Length - 1)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
+            Instantiate(enemy[Random.Range(0, enemy.Length)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0f;
         }
     }
@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnBeer()
     {
         beerRNG = Random.Range(1, 6);
-        if (beerTimer >= 250f)
+        if (beerTimer >= 200f)
         {
             if (beerRNG == 5)
             {
