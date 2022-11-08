@@ -17,6 +17,10 @@ public class ProjectileAimer : MonoBehaviour
     GameObject Aimer;
     public float FireAngle;
 
+    public GameObject[] currentEnemies;
+    public Transform closestEnemy;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,13 +28,21 @@ public class ProjectileAimer : MonoBehaviour
         scatterShot1 = transform;
         scatterShot2 = transform;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        
+    }
+
+    private void Start()
+    {
+        closestEnemy = null;
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //closestEnemy = GetClosestEnemy();
 
-        Vector3 AimerLocation = Camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 AimerLocation = Camera.ScreenToWorldPoint(closestEnemy.position);
 
         Vector3 AimerRotation = AimerLocation - transform.position;
 
@@ -105,6 +117,48 @@ public class ProjectileAimer : MonoBehaviour
             }
 
     }
+
+
+    /*public Transform getClosestEnemy(Transform[] enemies)
+    {
+        
+        float closestDistance = Mathf.Infinity;
+        Transform transform = null;
+        
+
+        foreach (GameObject t in enemies)
+        {
+            float currentDistance;
+            currentDistance = Vector3.Distance(transform.position, t.transform.position);
+
+            if(currentDistance < closestDistance)
+
+            {
+                closestDistance = currentDistance;
+                transform = t.transform;
+            }
+
+        }
+    }
+        return transform;*/
+
+    public Transform GetClosestEnemy(Transform[] enemies)
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (Transform t in enemies)
+        {
+            float dist = Vector3.Distance(t.position, currentPos);
+            if (dist < minDist)
+            {
+                tMin = t;
+                minDist = dist;
+            }
+        }
+        return tMin;
+    }
+
 
 
 }
