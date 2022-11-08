@@ -16,7 +16,7 @@ public class ProjectileAimer : MonoBehaviour
     Transform scatterShot2;
     GameObject Aimer;
     public float FireAngle;
-    public int frameCounter;
+    public int frameCounter = 0;
 
 
     private GameObject[] enemies;
@@ -43,8 +43,15 @@ public class ProjectileAimer : MonoBehaviour
     {
 
         //closestEnemy = findClosestEnemy();
-        ManageShooting();
 
+        
+
+
+       
+
+
+
+        transform.rotation = Quaternion.Euler(0f, 0f, FireAngle);
 
     }
 
@@ -62,19 +69,77 @@ public class ProjectileAimer : MonoBehaviour
 
         //FireAngle = FireAngle + 7.2f;
 
-        if (frameCounter >= 12)
+        if (frameCounter == 1)
         {
-            FireAngle = 45;
+            FireAngle = 0;
+            ManageShooting();
+            
         }
 
-        FireAngle = 45;
-        FireAngle = 135;
-        FireAngle = 225;
-        FireAngle = 315;
+        if (frameCounter == 6)
+        {
+            FireAngle = 45;
+            ManageShooting();
+
+        }
+
+        if (frameCounter == 12)
+        {
+            FireAngle = 90;
+            ManageShooting();
+
+        }
+
+        if (frameCounter == 19)
+        {
+            FireAngle = 135;
+            ManageShooting();
+
+        }
+
+
+        if (frameCounter == 24)
+        {
+            FireAngle = 180;
+            ManageShooting();
+
+        }
+
+        if (frameCounter == 30)
+        {
+            FireAngle = 225;
+            ManageShooting();
+            
+        }
+
+
+        if (frameCounter == 37)
+        {
+            FireAngle = 270;
+            ManageShooting();
+
+        }
+
+        if (frameCounter == 49)
+        {
+            FireAngle = 315;
+            ManageShooting();
+            
+        }
+
+        if (frameCounter == 50)
+        {
+            frameCounter = 0;
+        }
+       
+
+        
 
        
 
-        transform.rotation = Quaternion.Euler(0f, 0f, FireAngle);
+        
+
+        //transform.rotation = Quaternion.Euler(0f, 0f, FireAngle);
     }
 
 
@@ -87,13 +152,13 @@ public class ProjectileAimer : MonoBehaviour
                 Instantiate(bullet, BulletSpawn.position, transform.rotation);
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (shoot)
             {
                 scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
                 Instantiate(bullet, BulletSpawn.position, scatterShot1.rotation);
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (shoot)
             {
                 scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
                 Instantiate(bullet, BulletSpawn.position, scatterShot2.rotation);
@@ -104,19 +169,20 @@ public class ProjectileAimer : MonoBehaviour
 
     public void ShootShotgunExplosive()
     {
+        bool shoot = true;
 
-            if (Input.GetMouseButtonDown(1))
+            if (shoot)
             {
                 Instantiate(explosiveBullet, BulletSpawn.position, transform.rotation);
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (shoot)
             {
                 scatterShot1.rotation = Quaternion.Euler(0, 0, FireAngle + 10);
                 Instantiate(explosiveBullet, BulletSpawn.position, scatterShot1.rotation);
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (shoot)
             {
                 scatterShot2.rotation = Quaternion.Euler(0, 0, FireAngle - 10);
                 Instantiate(explosiveBullet, BulletSpawn.position, scatterShot2.rotation);

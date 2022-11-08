@@ -44382,7 +44382,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713752498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -47781,6 +47781,8 @@ MonoBehaviour:
   explosiveBullet: {fileID: 5152552722063882934, guid: de18d31208095db41bdd844f94fe2748, type: 3}
   player: {fileID: 650879116}
   FireAngle: 0
+  frameCounter: 0
+  closestEnemy: {fileID: 0}
 --- !u!1001 &1125594749
 PrefabInstance:
   m_ObjectHideFlags: 0
