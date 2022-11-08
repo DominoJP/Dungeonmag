@@ -9,12 +9,14 @@ public class WaveCounter : MonoBehaviour
     public float waveNumber;
     public EnemyController enemyMainScript;
     public GameObject[] enemyList;
+    public PlayerController playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         waveNumber = 1;
         enemiesKilled = 0;
+        playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
     }
 
@@ -28,7 +30,7 @@ public class WaveCounter : MonoBehaviour
             //UI UpgradeScreen
 
             ClearWave();
-           
+            playerScript.hasShotgun = true;
 
         }
 
@@ -38,6 +40,7 @@ public class WaveCounter : MonoBehaviour
             //UI UpgradeScreen
 
             ClearWave();
+            playerScript.hasPiercingBullets = true;
 
         }
 
@@ -53,7 +56,7 @@ public class WaveCounter : MonoBehaviour
         {
             waveNumber = 5;
             //UI UpgradeScreen
-
+            playerScript.hasExplosiveBullets = true;
             ClearWave();
         }
 
