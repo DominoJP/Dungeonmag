@@ -81,6 +81,11 @@ public class PlayerController : MonoBehaviour
         {
             health = health - 1;
         }
+
+        if (other.CompareTag("Lava"))
+        {
+            health = health - 3;
+        }
     }
 
 

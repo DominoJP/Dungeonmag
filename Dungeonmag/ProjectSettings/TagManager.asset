@@ -10,6 +10,7 @@ TagManager:
   - BumperRight
   - BumperLeft
   - Explosion
+  - Lava
   layers:
   - Default
   - TransparentFX
