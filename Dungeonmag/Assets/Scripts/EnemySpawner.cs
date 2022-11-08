@@ -67,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (frameCounter >= 150)
         {
-            Instantiate(enemy[Random.Range(0, enemy.Length - 1)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
+            Instantiate(enemy[Random.Range(0, enemy.Length)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0f;
         }
     }
@@ -77,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (frameCounter >= 100)
         {
-            Instantiate(enemy[Random.Range(0, enemy.Length - 1)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
+            Instantiate(enemy[Random.Range(0, enemy.Length)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0f;
         }
     }
@@ -87,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (frameCounter >= 75)
         {
-            Instantiate(enemy[Random.Range(0, enemy.Length - 1)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
+            Instantiate(enemy[Random.Range(0, enemy.Length)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0f;
         }
     }
@@ -97,7 +97,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (frameCounter >= 50)
         {
-            Instantiate(enemy[Random.Range(0, enemy.Length - 1)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
+            Instantiate(enemy[Random.Range(0, enemy.Length)], new Vector3(player.transform.position.x + 10, Random.Range(-5f, 5f), 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0f;
         }
     }
