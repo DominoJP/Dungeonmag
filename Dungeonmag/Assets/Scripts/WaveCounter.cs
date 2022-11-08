@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveCounter : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class WaveCounter : MonoBehaviour
             //win game
 
             ClearWave();
+            SceneManager.LoadScene("Credits");
         }
 
          
